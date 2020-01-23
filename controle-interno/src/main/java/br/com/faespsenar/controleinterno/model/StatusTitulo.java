@@ -3,7 +3,8 @@ package br.com.faespsenar.controleinterno.model;
 public enum StatusTitulo {
 	
 	PENDENTE("Pendente"),
-	RECEBIDO("Recebido");
+	RECEBIDO("Recebido"),
+	CANCELADO("Cancelado");
 	
 	private String descricao;
 	
