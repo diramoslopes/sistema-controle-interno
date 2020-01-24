@@ -1,4 +1,4 @@
-package br.com.faespsenar.controleinterno.model;
+package br.com.faespsenar.controleinterno.enumerator;
 
 public enum StatusTitulo {
 	

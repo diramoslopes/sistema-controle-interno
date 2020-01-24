@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.faespsenar.controleinterno.model.StatusTitulo;
+import br.com.faespsenar.controleinterno.enumerator.StatusTitulo;
 import br.com.faespsenar.controleinterno.model.Titulo;
 import br.com.faespsenar.controleinterno.repository.Titulos;
 

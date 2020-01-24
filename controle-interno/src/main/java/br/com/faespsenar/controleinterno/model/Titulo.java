@@ -15,6 +15,8 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import br.com.faespsenar.controleinterno.enumerator.StatusTitulo;
+
 @Entity
 public class Titulo {
 	
@@ -77,7 +79,6 @@ public class Titulo {
 	public boolean isPendente() {
 		return StatusTitulo.PENDENTE.equals(this.status);
 	}
-	
 	
 	@Override
 	public int hashCode() {
