@@ -19,6 +19,7 @@
 			
 			<div class="panel-body">
 				<table class="table table-bordered table-striped">
+					
 					<thead>
 						<tr>
 							<th class="text-center col-md-1">#</th>
@@ -31,10 +32,25 @@
 					</thead>
 					
 					<tbody>
+						<tr th:each="titulo : ${titulos}">
+							<td class="text-center" th:text="${titulo.codigo}"></td>
+							<td th:text="${titulo.descricao}"></td>
+							<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
+							<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
+							<td class="text-center">
+								<span class="label label-success" th:text="${titulo.status.descricao}"
+									  th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}"></span>
+							</td>
+							<td class="text-center"> 
+							
+							</td>
+						</tr>
+						
 						<tr>
-							<td colspan="6">Nenhum titulo foi encontrado </td>
+							<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum titulo foi encontrado </td>
 						</tr>
 					</tbody>
+					
 				</table>
 			</div>
 		</div>
