@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.faespsenar.controleinterno.enumerator.TipoEntidade;
 import br.com.faespsenar.controleinterno.model.Funcionario;
 import br.com.faespsenar.controleinterno.repository.Departamentos;
 import br.com.faespsenar.controleinterno.repository.Funcionarios;
@@ -26,7 +27,7 @@ public class FuncionarioController {
 	public ModelAndView novo() {
 		ModelAndView mv = new ModelAndView("CadastroFuncionario");
 		mv.addObject("todosDepartamentos", departamentos.findAll());
-		
+		mv.addObject("todasEntidades", TipoEntidade.values());
 		return mv;
 	}
 	
@@ -38,6 +39,7 @@ public class FuncionarioController {
 		ModelAndView mv = new ModelAndView("CadastroFuncionario");
 		mv.addObject("mensagem", "Funcionario salvo com sucesso!");
 		mv.addObject("todosDepartamentos", departamentos.findAll());
+		mv.addObject("todasEntidades", TipoEntidade.values());
 		
 		return mv;
 	}
@@ -53,7 +55,5 @@ public class FuncionarioController {
 		return mv;
 		
 	}
-	
-	
 	
 }

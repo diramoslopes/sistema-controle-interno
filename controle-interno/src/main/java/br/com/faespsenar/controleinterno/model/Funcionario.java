@@ -1,11 +1,15 @@
 package br.com.faespsenar.controleinterno.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import br.com.faespsenar.controleinterno.enumerator.TipoEntidade;
 
 @Entity
 public class Funcionario {
@@ -17,6 +21,9 @@ public class Funcionario {
 	private String nomeFuncionario;
 	
 	private String email;
+	
+	@Enumerated(EnumType.STRING)
+	private TipoEntidade entidade;
 	
 	private String ramal;
 	
@@ -62,6 +69,14 @@ public class Funcionario {
 
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
+	}
+
+	public TipoEntidade getEntidade() {
+		return entidade;
+	}
+
+	public void setEntidade(TipoEntidade entidade) {
+		this.entidade = entidade;
 	}
 	
 	
