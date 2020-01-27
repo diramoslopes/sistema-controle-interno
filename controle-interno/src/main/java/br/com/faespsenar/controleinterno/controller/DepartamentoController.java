@@ -1,5 +1,7 @@
 package br.com.faespsenar.controleinterno.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +37,17 @@ public class DepartamentoController {
 		mv.addObject("mensagem", "Departamento salvo com sucesso!");
 		mv.addObject("todosAndares", TipoAndar.values());
 		mv.addObject("todasEntidades", TipoEntidade.values());
+		return mv;
+	}
+	
+	@RequestMapping
+	public ModelAndView pesquisar() {
+		
+		List<Departamento> todosDepartamentos = departamentos.findAll();
+		
+		ModelAndView mv = new ModelAndView("PesquisaDepartamento");
+		mv.addObject("departamentos", todosDepartamentos);
+		
 		return mv;
 	}
 	

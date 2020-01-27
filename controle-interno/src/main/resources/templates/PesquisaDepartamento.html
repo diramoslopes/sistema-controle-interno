@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="LayoutPadrao">
+	
+	<head>
+		<title>Pesquisa de Departamentos</title>
+	</head>
+
+	<section layout:fragment="conteudo">
+			<div class="panel panel-default">
+			
+				<div class="panel-heading">
+					<div class="clearfix">
+						<h1 class="panel-title aw-titulo-panel">Pesquisa de departamentos</h1>
+						<a class="btn btn-link aw-link-panel" href="/departamentos/novo">Novo departamento</a>
+					</div>
+				</div>
+				
+				<div class="panel-body">
+					<table class="table table-bordered table-striped">
+						
+						<thead>
+							<tr>
+								<th class="text-center col-md-1">#</th>
+								<th> Departamento </th>
+								<th class="text-center col-md-2">Entidade</th>
+								<th class="text-right col-md-2">Chefia</th>
+								<th class="text-center col-md-2">Andar</th>
+								<th class="col-md-1"></th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr th:each="departamento : ${departamentos}">
+								<td class="text-center" th:text="${departamento.codigo}"></td>
+								<td th:text="${departamento.nomeDepartamento}"></td>
+								<td class="text-center" th:text="${departamento.entidade.descricao}"></td>
+								<td class="text-right" th:text="${departamento.chefia}"></td>
+								<td class="text-center" th:text="${departamento.andar.descricao}"></td>
+								<td class="text-center">
+								</td>
+							</tr>
+						</tbody>
+						
+					</table>
+				</div>
+			</div>
+	</section>
+	
+</html>

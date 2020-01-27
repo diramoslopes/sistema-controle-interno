@@ -25,7 +25,6 @@ public class TituloController {
 	public ModelAndView novo() {
 		
 		ModelAndView mv = new ModelAndView("CadastroTitulo");
-		mv.addObject("todosStatusTitulo", StatusTitulo.values());
 		return mv;
 	}
 	
@@ -36,7 +35,6 @@ public class TituloController {
 		
 		ModelAndView mv = new ModelAndView("CadastroTitulo");
 		mv.addObject("mensagem", "Titulo salvo com sucesso!");
-		mv.addObject("todosStatusTitulo", StatusTitulo.values());
 		return mv;
 	}
 	

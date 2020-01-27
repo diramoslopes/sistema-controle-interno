@@ -1,5 +1,70 @@
 package br.com.faespsenar.controleinterno.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Funcionario {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long codigo;
+	
+	private String nomeFuncionario;
+	
+	private String email;
+	
+	private String ramal;
+	
+	@ManyToOne
+	@JoinColumn(name = "departamento_codigo", nullable = false)
+	private Departamento departamento = new Departamento();
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNomeFuncionario() {
+		return nomeFuncionario;
+	}
+
+	public void setNomeFuncionario(String nomeFuncionario) {
+		this.nomeFuncionario = nomeFuncionario;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getRamal() {
+		return ramal;
+	}
+
+	public void setRamal(String ramal) {
+		this.ramal = ramal;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+	
+	
+	
 
 }
