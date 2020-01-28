@@ -25,15 +25,15 @@
 							<tr>
 								<th class="text-center ">#</th>
 								<th> Departamento </th>
-								<th class="text-center ">Funcionario</th>
-								<th class="text-center ">Entidade</th>
-								<th class="text-center ">Patrimonio</th>
-								<th class="text-center ">Serie</th>
-								<th class="text-center ">Tipo do Equipamento</th>
-								<th class="text-center ">Marca</th>
-								<th class="text-center ">Modelo</th>
-								<th class="text-center ">Status</th>
-								<th class="text-center ">Observação</th>
+								<th class="text-center">Funcionario</th>
+								<th class="text-center">Entidade</th>
+								<th class="text-center">Patrimonio</th>
+								<th class="text-center">Serie</th>
+								<th class="text-center">Tipo do Equipamento</th>
+								<th class="text-center">Marca</th>
+								<th class="text-center">Modelo</th>
+								<th class="text-center">Status</th>
+								<th class="text-center">Observação</th>
 								<th class="text-center"> Opções</th>
 							</tr>
 						</thead>
@@ -42,15 +42,15 @@
 							<tr th:each="equipamento : ${equipamentos}">
 								<td class="text-center" th:text="${equipamento.codigo}"></td>
 								<td th:text="${equipamento.departamento.nomeDepartamento}"></td>
-								<td class="text-center " th:text="${equipamento.funcionario.nomeFuncionario}"></td>
-								<td class="text-center " th:text="${equipamento.entidade.descricao}"></td>
-								<td class="text-center " th:text="${equipamento.numeroDePatrimonio}"></td>
-								<td class="text-center " th:text="${equipamento.numeroDeSerie}"></td>
-								<td class="text-center " th:text="${equipamento.tipoEquipamento.descricao}"></td>
-								<td class="text-center " th:text="${equipamento.marca}"></td>
-								<td class="text-center " th:text="${equipamento.modelo}"></td>
-								<td class="text-center " th:text="${equipamento.tipoStatus.descricao}"></td>
-								<td class="text-center " th:text="${equipamento.observacao}"></td>
+								<td class="text-center" th:text="${equipamento.funcionario.nomeFuncionario}"></td>
+								<td class="text-center" th:text="${equipamento.entidade.descricao}"></td>
+								<td class="text-center" th:text="${equipamento.numeroDePatrimonio}"></td>
+								<td class="text-center" th:text="${equipamento.numeroDeSerie}"></td>
+								<td class="text-center" th:text="${equipamento.tipoEquipamento.descricao}"></td>
+								<td class="text-center" th:text="${equipamento.marca}"></td>
+								<td class="text-center" th:text="${equipamento.modelo}"></td>
+								<td class="text-center" th:text="${equipamento.tipoStatus.descricao}"></td>
+								<td class="text-center" th:text="${equipamento.observacao}"></td>
 								<td class="text-center"> 	
 								</td>
 							</tr>
