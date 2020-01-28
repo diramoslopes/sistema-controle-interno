@@ -28,7 +28,7 @@ public class Titulo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
-	@javax.validation.constraints.NotEmpty(message = "Descrição é obrigatoria")
+	@javax.validation.constraints.NotEmpty(message = "Descrição é obrigatória")
 	@Size(max = 60, message = "A descrição não pode conter mais de 60 caracteres")
 	private String descricao;
 	

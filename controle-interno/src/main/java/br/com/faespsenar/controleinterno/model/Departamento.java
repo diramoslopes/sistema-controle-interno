@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import br.com.faespsenar.controleinterno.enumerator.TipoAndar;
 import br.com.faespsenar.controleinterno.enumerator.TipoEntidade;
@@ -19,6 +20,7 @@ public class Departamento {
 	private Long codigo;
 	
 	@NotEmpty(message = "Departamento é obrigatório")
+	@Size(max = 30, message = "Nome do Departamento tamanho máx 30")
 	private String nomeDepartamento;
 	
 	@Enumerated(EnumType.STRING)
