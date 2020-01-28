@@ -51,7 +51,10 @@
 								<td class="text-center" th:text="${equipamento.modelo}"></td>
 								<td class="text-center" th:text="${equipamento.tipoStatus.descricao}"></td>
 								<td class="text-center" th:text="${equipamento.observacao}"></td>
-								<td class="text-center"> 	
+								<td class="text-center"> 
+									<a class="btn btn-link btn-xs" th:href="@{/equipamentos/{codigo}(codigo=${equipamento.codigo})}">
+										<span class="glyphicon glyphicon-pencil"></span>
+									</a>
 								</td>
 							</tr>
 						</tbody>

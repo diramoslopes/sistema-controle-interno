@@ -29,7 +29,7 @@
 								<th class="text-right col-md-2">Entidade</th>
 								<th class="text-center col-md-2">Ramal</th>
 								<th class="text-center col-md-2">Departamento</th>
-								<th class="col-md-1"></th>
+								<th class="text-center col-md-1">Opções</th>
 							</tr>
 						</thead>
 						
@@ -42,6 +42,9 @@
 								<td class="text-center" th:text="${funcionario.ramal}"></td>
 								<td class="text-center" th:text="${funcionario.departamento.nomeDepartamento}"></td>
 								<td class="text-center">
+									<a class="btn btn-link btn-xs" th:href="@{/funcionarios/{codigo}(codigo=${funcionario.codigo})}">
+										<span class="glyphicon glyphicon-pencil"></span>
+									</a>
 								</td>
 							</tr>
 						</tbody>

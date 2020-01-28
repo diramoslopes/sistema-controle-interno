@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,11 +42,6 @@ public class EquipamentoController {
 	@RequestMapping("/novo") 
 	public ModelAndView novo() { 
 		ModelAndView mv= new ModelAndView(CADASTRO_VIEW);
-		//mv.addObject("todosDepartamentos", departamentos.findAll());
-		//mv.addObject("todosFuncionarios", funcionarios.findAll());
-		//mv.addObject("todasEntidades", TipoEntidade.values());
-		//mv.addObject("todosTipoEquipamentos", TipoEquipamento.values());
-		//mv.addObject("todosTipoStatus", TipoStatus.values());
 		mv.addObject(new Equipamento());
 		return mv;
 	}
@@ -58,17 +54,7 @@ public class EquipamentoController {
 		}
 		
 		equipamentos.save(equipamento);
-		
-		//ModelAndView mv = new ModelAndView("CadastroEquipamento");
-		//mv.addObject("mensagem", "Equipamento salvo com sucesso!");
-		
 		attributes.addFlashAttribute("mensagem", "Equipamento salvo com sucesso!");
-		//mv.addObject("todosDepartamentos", departamentos.findAll());
-		//mv.addObject("todosFuncionarios", funcionarios.findAll());
-		//mv.addObject("todasEntidades", TipoEntidade.values());
-		//mv.addObject("todosTipoEquipamentos", TipoEquipamento.values());
-		//mv.addObject("todosTipoStatus", TipoStatus.values());
-		
 		return "redirect:/equipamentos/novo";
 	}
 	
@@ -80,6 +66,14 @@ public class EquipamentoController {
 		
 		return mv;
 	}
+	
+	@RequestMapping("{codigo}")
+	public ModelAndView edicao(@PathVariable("codigo") Equipamento equipamento) {//por debaixo dos panos o spring faz um findById com o codigo
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		mv.addObject(equipamento);
+		return mv;
+	}
+	
 	
 	@ModelAttribute("todosDepartamentos")
 	public List<Departamento> todosDepartamentos(){
