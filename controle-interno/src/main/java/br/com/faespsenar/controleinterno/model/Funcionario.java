@@ -36,7 +36,7 @@ public class Funcionario implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private TipoEntidade entidade;
 	
-	@NotNull(message = "Ramal é obrigatório")
+	@NotEmpty(message = "Ramal é obrigatório")
 	@Size(max = 4, min = 4, message = "Ramal é necessario 4 digitos")
 	private String ramal;
 	

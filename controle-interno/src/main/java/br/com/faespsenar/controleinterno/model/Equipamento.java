@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import br.com.faespsenar.controleinterno.enumerator.TipoEntidade;
 import br.com.faespsenar.controleinterno.enumerator.TipoEquipamento;
@@ -35,15 +37,19 @@ public class Equipamento implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private TipoEntidade entidade;
 	
-	String numeroDePatrimonio = null;
+	@NotEmpty(message = "Patrimonio é obrigatorio")
+	@Size(min = 4, max = 4, message = "Patrimonio é necessario 4 digitos")
+	String numeroDePatrimonio;
 	
 	String numeroDeSerie = null;
 	
 	@Enumerated(EnumType.STRING)
 	private TipoEquipamento tipoEquipamento;
 	
+	@NotEmpty(message = "Marca é obrigatória")
 	private String marca = null;
 	
+	@NotEmpty(message = "Modelo é obrigatório")
 	private String modelo = null;
 	
 	@Enumerated(EnumType.STRING)

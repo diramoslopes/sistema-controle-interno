@@ -9,11 +9,9 @@
 	</head>
 	
 	<section layout:fragment="conteudo">
-		<form class="form-horizontal" method="POST" action="/equipamentos">
+		<form class="form-horizontal" method="POST" action="/equipamentos" th:object="${equipamento}">
 			
-			<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
-				<span th:text="${mensagem}"> </span>
-			</div>
+			<div layout:insert="Mensagem"></div>
 			
 			<div class="panel panel-default">
 			
@@ -29,7 +27,7 @@
 					<div class="form-group">
 						<label for="departamento" class="col-sm-2 control-label">Departamento</label>
 						<div class="col-sm-4"> 
-							<select class="form-control" id="departamento" name="departamento">
+							<select class="form-control" id="departamento" th:field="*{departamento}">
 								<option th:each="departamento : ${todosDepartamentos}" th:value="${departamento.codigo}" th:text="${departamento.nomeDepartamento}"></option>
 	                    	</select>
 						</div>
@@ -38,7 +36,7 @@
 					<div class="form-group">
 						<label for="funcionario" class="col-sm-2 control-label">Funcionario</label>
 						<div class="col-sm-4"> 
-							<select class="form-control" id="funcionario" name="funcionario">
+							<select class="form-control" id="funcionario" th:field="*{funcionario}">
 								<option th:each="funcionario : ${todosFuncionarios}" th:value="${funcionario.codigo}" th:text="${funcionario.nomeFuncionario}"></option>
 	                    	</select>
 						</div>
@@ -47,53 +45,53 @@
 					<div class="form-group">
 						<label for="entidade" class="col-sm-2 control-label">Entidade</label>
 						<div class="col-sm-2">
-							<select class="form-control" id="entidade" name="entidade">
+							<select class="form-control" id="entidade" th:field="*{entidade}">
 								<option th:each="entidade : ${todasEntidades}" th:value="${entidade}" th:text="${entidade.descricao}"></option>
 	                    	</select>
 	               		 </div>
 	                </div>
 	                
-	                <div class="form-group">
+	                <div class="form-group" th:classappend="${#fields.hasErrors('numeroDePatrimonio')} ? 'has-error'">
 					    <label for="numeroDePatrimonio" class="col-sm-2 control-label">Patrimonio</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="numeroDePatrimonio" name="numeroDePatrimonio" placeholder="Numero do Patrimonio">
+					      <input type="text" class="form-control" id="numeroDePatrimonio" th:field="*{numeroDePatrimonio}" placeholder="Numero do Patrimonio">
 					    </div>
 					</div>
 					
 					 <div class="form-group">
 					    <label for="numeroDeSerie" class="col-sm-2 control-label">Serie</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="numeroDeSerie" name="numeroDeSerie" placeholder="Numero do Serie">
+					      <input type="text" class="form-control" id="numeroDeSerie" th:field="*{numeroDeSerie}" placeholder="Numero do Serie">
 					    </div>
 					 </div>
 					 
 					 <div class="form-group">
 						<label for="tipoEquipamento" class="col-sm-2 control-label">Tipo do Equipamento</label>
 						<div class="col-sm-2">
-							<select class="form-control" id="tipoEquipamento" name="tipoEquipamento">
-								<option th:each="equipamento : ${todosTipoEquipamentos}" th:value="${equipamento}" th:text="${equipamento.descricao}"></option>
+							<select class="form-control" id="tipoEquipamento" th:field="*{tipoEquipamento}">
+								<option th:each="equipamento : ${todosTipoEquipamento}" th:value="${equipamento}" th:text="${equipamento.descricao}"></option>
 	                    	</select>
 	               		 </div>
 	                </div>
 	                
-	                <div class="form-group">
+	                <div class="form-group" th:classappend="${#fields.hasErrors('marca')} ? 'has-error'">
 					    <label for="marca" class="col-sm-2 control-label">Marca</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca">
+					      <input type="text" class="form-control" id="marca" th:field="*{marca}" placeholder="Marca">
 					    </div>
 					</div>
 					
-					<div class="form-group">
+					<div class="form-group" th:classappend="${#fields.hasErrors('modelo')} ? 'has-error'">
 					    <label for="modelo" class="col-sm-2 control-label">Modelo</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo">
+					      <input type="text" class="form-control" id="modelo" th:field="*{modelo}" placeholder="Modelo">
 					    </div>
 					</div>
 					
 					<div class="form-group">
 						<label for="tipoStatus" class="col-sm-2 control-label">Status</label>
 						<div class="col-sm-2">
-							<select class="form-control" id="tipoStatus" name="tipoStatus">
+							<select class="form-control" id="tipoStatus" th:field="*{tipoStatus}">
 								<option th:each="status : ${todosTipoStatus}" th:value="${status}" th:text="${status.descricao}"></option>
 	                    	</select>
 	               		 </div>
@@ -102,7 +100,7 @@
 	                <div class="form-group">
 					    <label for="observacao" class="col-sm-2 control-label">Observação</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="observacao" name="observacao" placeholder="Observação">
+					      <input type="text" class="form-control" id="observacao" th:field="*{observacao}" placeholder="Observação">
 					    </div>
 					</div>
 					
