@@ -67,6 +67,14 @@ public class DepartamentoController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/excluir/{codigo}")
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		departamentos.deleteById(codigo);
+		
+		attributes.addFlashAttribute("mensagem", "Departamento excluido com sucesso");
+		return "redirect:/departamentos";
+	}
+	
 	@ModelAttribute("todosAndares")
 	public List<TipoAndar> todosAndares(){
 		return Arrays.asList(TipoAndar.values());

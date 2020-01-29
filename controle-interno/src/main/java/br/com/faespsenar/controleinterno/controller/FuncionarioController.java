@@ -71,6 +71,14 @@ public class FuncionarioController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/excluir/{codigo}")
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		funcionarios.deleteById(codigo);
+		
+		attributes.addFlashAttribute("mensagem", "Funcionario excluido com sucesso");
+		return "redirect:/funcionarios";
+	}
+	
 	@ModelAttribute("todasEntidades")
 	public List<TipoEntidade> todaEntidades(){
 		return Arrays.asList(TipoEntidade.values());

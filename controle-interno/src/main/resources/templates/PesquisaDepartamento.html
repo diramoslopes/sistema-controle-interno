@@ -9,6 +9,8 @@
 	</head>
 
 	<section layout:fragment="conteudo">
+			<div layout:insert="MensagemGeral"></div>
+		
 			<div class="panel panel-default">
 			
 				<div class="panel-heading">
@@ -44,8 +46,8 @@
 										<span class="glyphicon glyphicon-pencil"></span>
 									</a>
 									
-									<a class="btn btn-link btn-xs">
-	   									<span class="glyphicon glyphicon-remove"></span>
+									<a class="btn btn-link btn-xs" th:href="@{/departamentos/excluir/{codigo}(codigo=${departamento.codigo})}">
+		   								<span class="glyphicon glyphicon-remove"></span>
 	   								</a>
 								</td>
 							</tr>

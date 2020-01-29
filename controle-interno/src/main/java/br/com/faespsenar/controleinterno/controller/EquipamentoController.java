@@ -74,6 +74,13 @@ public class EquipamentoController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/excluir/{codigo}")
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		equipamentos.deleteById(codigo);
+		
+		attributes.addFlashAttribute("mensagem", "Equipamento excluido com sucesso");
+		return "redirect:/equipamentos";
+	}
 	
 	@ModelAttribute("todosDepartamentos")
 	public List<Departamento> todosDepartamentos(){
