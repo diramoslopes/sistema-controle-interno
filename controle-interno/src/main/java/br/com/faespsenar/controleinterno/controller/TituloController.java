@@ -29,7 +29,6 @@ public class TituloController {
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
-		
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(new Titulo());
 		return mv;
@@ -49,9 +48,7 @@ public class TituloController {
 	
 	@RequestMapping
 	public ModelAndView pesquisar() {
-		
 		List<Titulo> todosTitulos = titulos.findAll();
-		
 		ModelAndView mv = new ModelAndView("PesquisaTitulo");
 		mv.addObject("titulos", todosTitulos);
 		return mv;
@@ -59,13 +56,17 @@ public class TituloController {
 	
 	@RequestMapping("{codigo}")
 	public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) { 
-//		Optional<Titulo> titulo = titulos.findById(codigo);
-		
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
-//		mv.addObject("titulo", titulo.get());
 		mv.addObject(titulo);
-		
 		return mv;
+	}
+	
+	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
+	public String excluir(@PathVariable("codigo") Titulo titulo) {
+		titulos.delete(titulo);
+		
+		return "redirect:/titulos";
+		
 	}
 	
 	
