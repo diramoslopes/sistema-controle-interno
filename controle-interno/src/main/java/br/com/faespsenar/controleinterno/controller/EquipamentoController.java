@@ -23,6 +23,7 @@ import br.com.faespsenar.controleinterno.model.Funcionario;
 import br.com.faespsenar.controleinterno.repository.Departamentos;
 import br.com.faespsenar.controleinterno.repository.Equipamentos;
 import br.com.faespsenar.controleinterno.repository.Funcionarios;
+import br.com.faespsenar.controleinterno.service.EquipamentoService;
 
 @Controller
 @RequestMapping("/equipamentos")
@@ -39,6 +40,9 @@ public class EquipamentoController {
 	@Autowired
 	private Departamentos departamentos;
 	
+	@Autowired
+	private EquipamentoService equipamentoService;
+	
 	@RequestMapping("/novo") 
 	public ModelAndView novo() { 
 		ModelAndView mv= new ModelAndView(CADASTRO_VIEW);
@@ -53,7 +57,8 @@ public class EquipamentoController {
 			return CADASTRO_VIEW;
 		}
 		
-		equipamentos.save(equipamento);
+		equipamentoService.salvar(equipamento);
+		
 		attributes.addFlashAttribute("mensagem", "Equipamento salvo com sucesso!");
 		return "redirect:/equipamentos/novo";
 	}
@@ -76,7 +81,8 @@ public class EquipamentoController {
 	
 	@RequestMapping(value="/excluir/{codigo}")
 	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
-		equipamentos.deleteById(codigo);
+		
+		equipamentoService.excluir(codigo);
 		
 		attributes.addFlashAttribute("mensagem", "Equipamento excluido com sucesso");
 		return "redirect:/equipamentos";

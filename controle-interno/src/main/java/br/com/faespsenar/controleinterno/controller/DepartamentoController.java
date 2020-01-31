@@ -18,6 +18,7 @@ import br.com.faespsenar.controleinterno.enumerator.TipoAndar;
 import br.com.faespsenar.controleinterno.enumerator.TipoEntidade;
 import br.com.faespsenar.controleinterno.model.Departamento;
 import br.com.faespsenar.controleinterno.repository.Departamentos;
+import br.com.faespsenar.controleinterno.service.DepartamentoService;
 
 @Controller
 @RequestMapping("/departamentos")
@@ -27,6 +28,9 @@ public class DepartamentoController {
 	
 	@Autowired
 	private Departamentos departamentos;
+	
+	@Autowired
+	private DepartamentoService departamentoService;
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
@@ -42,7 +46,7 @@ public class DepartamentoController {
 			return CADASTRO_VIEW;
 		}
 		
-		departamentos.save(departamento);
+		departamentoService.salvar(departamento);
 		
 		attributes.addFlashAttribute("mensagem", "Departamento salvo com sucesso!");
 		return "redirect:/departamentos/novo";
@@ -69,7 +73,8 @@ public class DepartamentoController {
 	
 	@RequestMapping(value="/excluir/{codigo}")
 	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
-		departamentos.deleteById(codigo);
+		
+		departamentoService.excluir(codigo);
 		
 		attributes.addFlashAttribute("mensagem", "Departamento excluido com sucesso");
 		return "redirect:/departamentos";
