@@ -54,11 +54,13 @@
 								<td class="text-center" th:text="${equipamento.tipoStatus.descricao}"></td>
 								<td class="text-center" th:text="${equipamento.observacao}"></td>
 								<td class="text-center"> 
-									<a class="btn btn-link btn-xs" th:href="@{/equipamentos/{codigo}(codigo=${equipamento.codigo})}">
+									<a class="btn btn-link btn-xs" th:href="@{/equipamentos/{codigo}(codigo=${equipamento.codigo})}"
+										title="Editar" rel="tooltip" data-placement="top">
 										<span class="glyphicon glyphicon-pencil"></span>
 									</a>
 									
-									<a class="btn btn-link btn-xs" th:href="@{/equipamentos/excluir/{codigo}(codigo=${equipamento.codigo})}">
+									<a class="btn btn-link btn-xs" th:href="@{/equipamentos/excluir/{codigo}(codigo=${equipamento.codigo})}"
+										title="Excluir" rel="tooltip" data-placement="top">
 		   								<span class="glyphicon glyphicon-remove"></span>
 	   								</a>
 								</td>

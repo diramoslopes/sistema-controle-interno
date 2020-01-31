@@ -42,11 +42,13 @@
 								<td class="text-right" th:text="${departamento.chefia}"></td>
 								<td class="text-center" th:text="${departamento.andar.descricao}"></td>
 								<td class="text-center">
-									<a class="btn btn-link btn-xs" th:href="@{/departamentos/{codigo}(codigo=${departamento.codigo})}">
+									<a class="btn btn-link btn-xs" th:href="@{/departamentos/{codigo}(codigo=${departamento.codigo})}"
+										title="Editar" rel="tooltip" data-placement="top">
 										<span class="glyphicon glyphicon-pencil"></span>
 									</a>
 									
-									<a class="btn btn-link btn-xs" th:href="@{/departamentos/excluir/{codigo}(codigo=${departamento.codigo})}">
+									<a class="btn btn-link btn-xs" th:href="@{/departamentos/excluir/{codigo}(codigo=${departamento.codigo})}"
+										title="Excluir" rel="tooltip" data-placement="top">
 		   								<span class="glyphicon glyphicon-remove"></span>
 	   								</a>
 								</td>

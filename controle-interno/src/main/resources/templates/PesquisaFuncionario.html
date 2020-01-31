@@ -44,11 +44,13 @@
 								<td class="text-center" th:text="${funcionario.ramal}"></td>
 								<td class="text-center" th:text="${funcionario.departamento.nomeDepartamento}"></td>
 								<td class="text-center">
-									<a class="btn btn-link btn-xs" th:href="@{/funcionarios/{codigo}(codigo=${funcionario.codigo})}">
+									<a class="btn btn-link btn-xs" th:href="@{/funcionarios/{codigo}(codigo=${funcionario.codigo})}"
+										title="Editar" rel="tooltip" data-placement="top">
 										<span class="glyphicon glyphicon-pencil"></span>
 									</a>
 									
-									<a class="btn btn-link btn-xs" th:href="@{/funcionarios/excluir/{codigo}(codigo=${funcionario.codigo})}">
+									<a class="btn btn-link btn-xs" th:href="@{/funcionarios/excluir/{codigo}(codigo=${funcionario.codigo})}"
+										title="Excluir" rel="tooltip" data-placement="top">
 		   								<span class="glyphicon glyphicon-remove"></span>
 	   								</a>
 								</td>
