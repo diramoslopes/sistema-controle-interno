@@ -67,6 +67,7 @@ public class TituloController {
 	@RequestMapping("{codigo}")
 	public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) { 
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+//		mv.addObject(new Titulo());
 		mv.addObject(titulo);
 		return mv;
 	}
