@@ -1,9 +1,12 @@
 package br.com.faespsenar.controleinterno.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import br.com.faespsenar.controleinterno.enumerator.StatusTitulo;
 import br.com.faespsenar.controleinterno.model.Titulo;
 import br.com.faespsenar.controleinterno.repository.Titulos;
 
@@ -23,6 +26,13 @@ public class TituloService {
 
 	public void excluir(Long codigo) {
 		titulos.deleteById(codigo);
+	}
+
+	public String receber(Long codigo) {
+		Optional<Titulo> titulo = titulos.findById(codigo);
+		titulo.get().setStatus(StatusTitulo.RECEBIDO);
+		titulos.save(titulo.get());
+		return StatusTitulo.RECEBIDO.getDescricao();
 	}
 	
 }
