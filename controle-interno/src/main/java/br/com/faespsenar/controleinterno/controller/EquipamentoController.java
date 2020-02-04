@@ -21,8 +21,8 @@ import br.com.faespsenar.controleinterno.model.Departamento;
 import br.com.faespsenar.controleinterno.model.Equipamento;
 import br.com.faespsenar.controleinterno.model.Funcionario;
 import br.com.faespsenar.controleinterno.repository.Departamentos;
-import br.com.faespsenar.controleinterno.repository.Equipamentos;
 import br.com.faespsenar.controleinterno.repository.Funcionarios;
+import br.com.faespsenar.controleinterno.repository.filter.EquipamentoFilter;
 import br.com.faespsenar.controleinterno.service.EquipamentoService;
 
 @Controller
@@ -30,9 +30,6 @@ import br.com.faespsenar.controleinterno.service.EquipamentoService;
 public class EquipamentoController {
 	
 	private static final String CADASTRO_VIEW = "CadastroEquipamento";
-	
-	@Autowired
-	private Equipamentos equipamentos;
 	
 	@Autowired
 	private Funcionarios funcionarios;
@@ -63,9 +60,20 @@ public class EquipamentoController {
 		return "redirect:/equipamentos/novo";
 	}
 	
+//	@RequestMapping
+//	public ModelAndView pesquisar() {
+//		List<Equipamento> todosEquipamentos = equipamentos.findAll();
+//		ModelAndView mv = new ModelAndView("PesquisaEquipamento");
+//		mv.addObject("equipamentos", todosEquipamentos);
+//		
+//		return mv;
+//	}
+	
+	
 	@RequestMapping
-	public ModelAndView pesquisar() {
-		List<Equipamento> todosEquipamentos = equipamentos.findAll();
+	public ModelAndView pesquisar(@ModelAttribute("filtro") EquipamentoFilter filtro) {
+		List<Equipamento> todosEquipamentos = equipamentoService.filtrar(filtro);
+		
 		ModelAndView mv = new ModelAndView("PesquisaEquipamento");
 		mv.addObject("equipamentos", todosEquipamentos);
 		
