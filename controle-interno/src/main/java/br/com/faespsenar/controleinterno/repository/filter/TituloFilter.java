@@ -12,5 +12,4 @@ public class TituloFilter {
 		this.descricao = descricao;
 	}
 	
-	
 }

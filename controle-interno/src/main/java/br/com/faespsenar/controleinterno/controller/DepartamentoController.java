@@ -18,6 +18,7 @@ import br.com.faespsenar.controleinterno.enumerator.TipoAndar;
 import br.com.faespsenar.controleinterno.enumerator.TipoEntidade;
 import br.com.faespsenar.controleinterno.model.Departamento;
 import br.com.faespsenar.controleinterno.repository.Departamentos;
+import br.com.faespsenar.controleinterno.repository.filter.DepartamentoFilter;
 import br.com.faespsenar.controleinterno.service.DepartamentoService;
 
 @Controller
@@ -52,14 +53,23 @@ public class DepartamentoController {
 		return "redirect:/departamentos/novo";
 	}
 	
+//	@RequestMapping
+//	public ModelAndView pesquisar() {
+//		
+//		List<Departamento> todosDepartamentos = departamentos.findAll();
+//		
+//		ModelAndView mv = new ModelAndView("PesquisaDepartamento");
+//		mv.addObject("departamentos", todosDepartamentos);
+//		
+//		return mv;
+//	}
+	
 	@RequestMapping
-	public ModelAndView pesquisar() {
-		
-		List<Departamento> todosDepartamentos = departamentos.findAll();
+	public ModelAndView pesquisar(@ModelAttribute("filtro") DepartamentoFilter filtro) {
+		List<Departamento> todosDepartamentos = departamentoService.filtrar(filtro);
 		
 		ModelAndView mv = new ModelAndView("PesquisaDepartamento");
 		mv.addObject("departamentos", todosDepartamentos);
-		
 		return mv;
 	}
 	
