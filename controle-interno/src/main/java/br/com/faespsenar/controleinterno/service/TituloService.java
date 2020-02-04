@@ -1,5 +1,6 @@
 package br.com.faespsenar.controleinterno.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.faespsenar.controleinterno.enumerator.StatusTitulo;
 import br.com.faespsenar.controleinterno.model.Titulo;
 import br.com.faespsenar.controleinterno.repository.Titulos;
+import br.com.faespsenar.controleinterno.repository.filter.TituloFilter;
 
 @Service
 public class TituloService {
@@ -33,6 +35,11 @@ public class TituloService {
 		titulo.get().setStatus(StatusTitulo.RECEBIDO);
 		titulos.save(titulo.get());
 		return StatusTitulo.RECEBIDO.getDescricao();
+	}
+	
+	public List<Titulo> filtrar(TituloFilter filtro){
+		String descricao = filtro.getDescricao() == null ? "%" : filtro.getDescricao();
+		return titulos.findByDescricaoContaining(descricao);
 	}
 	
 }

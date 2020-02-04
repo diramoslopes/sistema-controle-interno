@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.faespsenar.controleinterno.enumerator.StatusTitulo;
 import br.com.faespsenar.controleinterno.model.Titulo;
-import br.com.faespsenar.controleinterno.repository.Titulos;
+import br.com.faespsenar.controleinterno.repository.filter.TituloFilter;
 import br.com.faespsenar.controleinterno.service.TituloService;
 
 @Controller
@@ -25,9 +25,6 @@ import br.com.faespsenar.controleinterno.service.TituloService;
 public class TituloController {
 	
 	private static final String CADASTRO_VIEW = "CadastroTitulo";
-	
-	@Autowired
-	private Titulos titulos;
 	
 	@Autowired
 	private TituloService cadastroTituloService;
@@ -56,9 +53,18 @@ public class TituloController {
 		}
 	}	
 	
+//	@RequestMapping
+//	public ModelAndView pesquisar() {
+//		List<Titulo> todosTitulos = titulos.findAll();
+//		ModelAndView mv = new ModelAndView("PesquisaTitulo");
+//		mv.addObject("titulos", todosTitulos);
+//		return mv;
+//	}
+	
 	@RequestMapping
-	public ModelAndView pesquisar() {
-		List<Titulo> todosTitulos = titulos.findAll();
+	public ModelAndView pesquisar(@ModelAttribute("filtro") TituloFilter filtro) {
+		List<Titulo> todosTitulos = cadastroTituloService.filtrar(filtro);
+		
 		ModelAndView mv = new ModelAndView("PesquisaTitulo");
 		mv.addObject("titulos", todosTitulos);
 		return mv;
