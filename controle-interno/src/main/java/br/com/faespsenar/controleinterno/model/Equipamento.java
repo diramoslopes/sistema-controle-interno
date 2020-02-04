@@ -145,6 +145,4 @@ public class Equipamento implements Serializable {
 		this.observacao = observacao;
 	}
 	
-	
-	
 }
