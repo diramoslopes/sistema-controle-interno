@@ -17,7 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.faespsenar.controleinterno.enumerator.TipoAndar;
 import br.com.faespsenar.controleinterno.enumerator.TipoEntidade;
 import br.com.faespsenar.controleinterno.model.Departamento;
-import br.com.faespsenar.controleinterno.repository.Departamentos;
 import br.com.faespsenar.controleinterno.repository.filter.DepartamentoFilter;
 import br.com.faespsenar.controleinterno.service.DepartamentoService;
 
@@ -26,9 +25,6 @@ import br.com.faespsenar.controleinterno.service.DepartamentoService;
 public class DepartamentoController {
 	
 	private static final String CADASTRO_VIEW = "CadastroDepartamento";
-	
-	@Autowired
-	private Departamentos departamentos;
 	
 	@Autowired
 	private DepartamentoService departamentoService;

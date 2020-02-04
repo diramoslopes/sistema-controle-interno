@@ -18,7 +18,7 @@ import br.com.faespsenar.controleinterno.enumerator.TipoEntidade;
 import br.com.faespsenar.controleinterno.model.Departamento;
 import br.com.faespsenar.controleinterno.model.Funcionario;
 import br.com.faespsenar.controleinterno.repository.Departamentos;
-import br.com.faespsenar.controleinterno.repository.Funcionarios;
+import br.com.faespsenar.controleinterno.repository.filter.FuncionarioFilter;
 import br.com.faespsenar.controleinterno.service.FuncionarioService;
 
 @Controller
@@ -26,9 +26,6 @@ import br.com.faespsenar.controleinterno.service.FuncionarioService;
 public class FuncionarioController {
 	
 	private static final String CADASTRO_VIEW = "CadastroFuncionario";
-	
-	@Autowired
-	private Funcionarios funcionarios;
 	
 	@Autowired
 	private Departamentos departamentos;
@@ -56,10 +53,21 @@ public class FuncionarioController {
 		return "redirect:/funcionarios/novo";
 	}
 	
+//	@RequestMapping
+//	public ModelAndView pesquisar() {
+//		
+//		List<Funcionario> todosFuncionarios = funcionarios.findAll();
+//		
+//		ModelAndView mv = new ModelAndView("PesquisaFuncionario");
+//		mv.addObject("funcionarios", todosFuncionarios);
+//		
+//		return mv;
+//	}
+	
 	@RequestMapping
-	public ModelAndView pesquisar() {
+	public ModelAndView pesquisar(@ModelAttribute("filtro") FuncionarioFilter filtro) {
 		
-		List<Funcionario> todosFuncionarios = funcionarios.findAll();
+		List<Funcionario> todosFuncionarios = funcionarioService.filtrar(filtro);
 		
 		ModelAndView mv = new ModelAndView("PesquisaFuncionario");
 		mv.addObject("funcionarios", todosFuncionarios);
