@@ -16,13 +16,13 @@
 				<div class="panel-heading">
 					<div class="clearfix">
 						<h1 class="panel-title aw-titulo-panel">Pesquisa de Departamentos</h1>
-						<a class="btn btn-link aw-link-panel" href="/departamentos/novo">Novo Departamento</a>
+						<a class="btn btn-link aw-link-panel" th:href="@{/departamentos/novo}">Novo Departamento</a>
 					</div>
 				</div>
 				
 				<div class="panel-body">
 					
-					<form method="get" class="form-horizontal" action="/departamentos" th:object="${filtro}">
+					<form method="get" class="form-horizontal" th:action="@{/departamentos}" th:object="${filtro}">
 						<div class="form-group">
 							<div class="col-sm-4">
 								<div class="input-group">

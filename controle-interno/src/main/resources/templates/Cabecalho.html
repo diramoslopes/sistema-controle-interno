@@ -8,7 +8,7 @@
 			
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#"> <img alt="AlgaWorks"
-						src="/images/fsp.PNG" />
+						th:src="@{/images/fsp.PNG}" />
 					</a>
 				</div>
 				
@@ -18,45 +18,45 @@
         			<li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Titulo<span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			            <li><a href="/titulos/novo">Cadastrar</a></li>
+			            <li><a th:href="@{/titulos/novo}">Cadastrar</a></li>
 			            <li role="separator" class="divider"></li>
-			            <li ><a href="/titulos?descricao=">Pesquisar</a></li>
+			            <li ><a th:href="@{/titulos?descricao=}">Pesquisar</a></li>
 			          </ul>
 			        </li>
         			
         			<li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departamento<span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			            <li><a href="/departamentos/novo">Cadastrar</a></li>
+			            <li><a th:href="@{/departamentos/novo}">Cadastrar</a></li>
 			            <li role="separator" class="divider"></li>
-			            <li ><a href="/departamentos?nomeDepartamento=">Pesquisar</a></li>
+			            <li ><a th:href="@{/departamentos?nomeDepartamento=}">Pesquisar</a></li>
 			          </ul>
 			        </li>
 			        
         			<li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funcionario<span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			            <li><a href="/funcionarios/novo">Cadastrar</a></li>
+			            <li><a th:href="@{/funcionarios/novo}">Cadastrar</a></li>
 			            <li role="separator" class="divider"></li>
-			            <li ><a href="/funcionarios?nomeFuncionario=">Pesquisar</a></li>
+			            <li ><a th:href="@{/funcionarios?nomeFuncionario=}">Pesquisar</a></li>
 			          </ul>
 			        </li>
 			        
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Equipamento<span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			            <li><a href="/equipamentos/novo">Cadastrar</a></li>
+			            <li><a th:href="@{/equipamentos/novo}">Cadastrar</a></li>
 			            <li role="separator" class="divider"></li>
-			            <li ><a href="/equipamentos?numeroDePatrimonio=">Pesquisar</a></li>
+			            <li ><a th:href="@{/equipamentos?numeroDePatrimonio=}">Pesquisar</a></li>
 			          </ul>
 			        </li>
 			        
 			         <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Impressoras<span class="caret"></span></a>
 			          <ul class="dropdown-menu">
-			            <li><a href="/impressoras/novo">Cadastrar</a></li>
+			            <li><a th:href="@{/impressoras/novo}">Cadastrar</a></li>
 			            <li role="separator" class="divider"></li>
-			            <li ><a href="/impressoras?descricao=">Pesquisar</a></li>
+			            <li ><a th:href="@{/impressoras?descricao=}">Pesquisar</a></li>
 			          </ul>
 			        </li>
 			        

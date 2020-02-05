@@ -9,7 +9,7 @@
 	</head>
 	
 	<section layout:fragment="conteudo">
-		<form class="form-horizontal" method="POST" action="/equipamentos" th:object="${equipamento}">
+		<form class="form-horizontal" method="POST" th:action="@{/equipamentos}" th:object="${equipamento}">
 			
 			<div layout:insert="MensagemGeral"></div>
 			<div layout:insert="MensagemErro"></div>
@@ -19,7 +19,7 @@
 				<div class="panel-heading">
 					<div class="clearfix">
 						<h1 class="panel-title aw-titulo-panel">Novo Equipamento</h1>
-						<a class="btn btn-link aw-link-panel" href="/equipamentos?numeroDePatrimonio=">Pesquisar Equipamentos</a>
+						<a class="btn btn-link aw-link-panel" th:href="@{/equipamentos?numeroDePatrimonio=}">Pesquisar Equipamentos</a>
 					</div>
 				</div>
 				
