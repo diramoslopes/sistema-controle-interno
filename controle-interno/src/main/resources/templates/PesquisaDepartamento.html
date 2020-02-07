@@ -38,41 +38,43 @@
 						</div>
 					</form>
 					
-					<table class="table table-bordered table-striped">
-						
-						<thead>
-							<tr>
-								<th class="text-center col-md-1">#</th>
-								<th> Departamento </th>
-								<th class="text-center col-md-2">Entidade</th>
-								<th class="text-right col-md-2">Chefia</th>
-								<th class="text-center col-md-2">Andar</th>
-								<th class="text-center col-md-1">Opções</th>
-							</tr>
-						</thead>
-						
-						<tbody>
-							<tr th:each="departamento : ${departamentos}">
-								<td class="text-center" th:text="${departamento.codigo}"></td>
-								<td th:text="${departamento.nomeDepartamento}"></td>
-								<td class="text-center" th:text="${departamento.entidade.descricao}"></td>
-								<td class="text-right" th:text="${departamento.chefia}"></td>
-								<td class="text-center" th:text="${departamento.andar.descricao}"></td>
-								<td class="text-center">
-									<a class="btn btn-link btn-xs" th:href="@{/departamentos/{codigo}(codigo=${departamento.codigo})}"
-										title="Editar" rel="tooltip" data-placement="top">
-										<span class="glyphicon glyphicon-pencil"></span>
-									</a>
-									
-									<a class="btn btn-link btn-xs" th:href="@{/departamentos/excluir/{codigo}(codigo=${departamento.codigo})}"
-										title="Excluir" rel="tooltip" data-placement="top">
-		   								<span class="glyphicon glyphicon-remove"></span>
-	   								</a>
-								</td>
-							</tr>
-						</tbody>
-						
-					</table>
+					<div class="table-responsive">
+						<table class="table table-bordered table-striped">
+							
+							<thead>
+								<tr>
+									<th class="text-center col-md-1">#</th>
+									<th> Departamento </th>
+									<th class="text-center col-md-2">Entidade</th>
+									<th class="text-right col-md-2">Chefia</th>
+									<th class="text-center col-md-2">Andar</th>
+									<th class="text-center col-md-1">Opções</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr th:each="departamento : ${departamentos}">
+									<td class="text-center" th:text="${departamento.codigo}"></td>
+									<td th:text="${departamento.nomeDepartamento}"></td>
+									<td class="text-center" th:text="${departamento.entidade.descricao}"></td>
+									<td class="text-right" th:text="${departamento.chefia}"></td>
+									<td class="text-center" th:text="${departamento.andar.descricao}"></td>
+									<td class="text-center">
+										<a class="btn btn-link btn-xs" th:href="@{/departamentos/{codigo}(codigo=${departamento.codigo})}"
+											title="Editar" rel="tooltip" data-placement="top">
+											<span class="glyphicon glyphicon-pencil"></span>
+										</a>
+										
+										<a class="btn btn-link btn-xs" th:href="@{/departamentos/excluir/{codigo}(codigo=${departamento.codigo})}"
+											title="Excluir" rel="tooltip" data-placement="top">
+			   								<span class="glyphicon glyphicon-remove"></span>
+		   								</a>
+									</td>
+								</tr>
+							</tbody>
+							
+						</table>
+					</div>
 				</div>
 				
 			</div>

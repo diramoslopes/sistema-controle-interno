@@ -37,45 +37,47 @@
 						</div>
 					</form>
 					
-					<table class="table table-bordered table-striped">
-					
-						<thead>
-							<tr>
-								<th class="text-center col-md-1">#</th>
-								<th> Descrição </th>
-								<th class="text-center col-md-2">Departamento</th>
-								<th class="text-right col-md-2">IP</th>
-								<th class="text-center col-md-2">Patrimonio</th>
-								<th class="text-center col-md-2">Marca</th>
-								<th class="text-center col-md-1">Cód. Maquina</th>
-								<th class="text-center col-md-1">Opções</th>
-							</tr>
-						</thead>
+					<div class="table-responsive">
+						<table class="table table-bordered table-striped">
 						
-						<tbody>
-							<tr th:each="impressora : ${impressoras}">
-								<td class="text-center" th:text="${impressora.codigo}"></td>
-								<td th:text="${impressora.descricao}"></td>
-								<td class="text-center" th:text="${impressora.departamento.nomeDepartamento}"></td>
-								<td class="text-right" th:text="${impressora.ip}"></td>
-								<td class="text-center" th:text="${impressora.patrimonio}"></td>
-								<td class="text-center" th:text="${impressora.marca}"></td>
-								<td class="text-center" th:text="${impressora.codigoMaquina}"></td>
-								<td class="text-center">
-									<a class="btn btn-link btn-xs" th:href="@{/impressoras/{codigo}(codigo=${impressora.codigo})}"
-										title="Editar" rel="tooltip" data-placement="top">
-										<span class="glyphicon glyphicon-pencil"></span>
-									</a>
-									
-									<a class="btn btn-link btn-xs" th:href="@{/impressora/excluir/{codigo}(codigo=${impressora.codigo})}"
-										title="Excluir" rel="tooltip" data-placement="top">
-		   								<span class="glyphicon glyphicon-remove"></span>
-	   								</a>
-								</td>
-							</tr>
-						</tbody>
-					
-					</table>
+							<thead>
+								<tr>
+									<th class="text-center col-md-1">#</th>
+									<th> Descrição </th>
+									<th class="text-center col-md-2">Departamento</th>
+									<th class="text-right col-md-2">IP</th>
+									<th class="text-center col-md-2">Patrimonio</th>
+									<th class="text-center col-md-2">Marca</th>
+									<th class="text-center col-md-1">Cód. Maquina</th>
+									<th class="text-center col-md-1">Opções</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr th:each="impressora : ${impressoras}">
+									<td class="text-center" th:text="${impressora.codigo}"></td>
+									<td th:text="${impressora.descricao}"></td>
+									<td class="text-center" th:text="${impressora.departamento.nomeDepartamento}"></td>
+									<td class="text-right" th:text="${impressora.ip}"></td>
+									<td class="text-center" th:text="${impressora.patrimonio}"></td>
+									<td class="text-center" th:text="${impressora.marca}"></td>
+									<td class="text-center" th:text="${impressora.codigoMaquina}"></td>
+									<td class="text-center">
+										<a class="btn btn-link btn-xs" th:href="@{/impressoras/{codigo}(codigo=${impressora.codigo})}"
+											title="Editar" rel="tooltip" data-placement="top">
+											<span class="glyphicon glyphicon-pencil"></span>
+										</a>
+										
+										<a class="btn btn-link btn-xs" th:href="@{/impressora/excluir/{codigo}(codigo=${impressora.codigo})}"
+											title="Excluir" rel="tooltip" data-placement="top">
+			   								<span class="glyphicon glyphicon-remove"></span>
+		   								</a>
+									</td>
+								</tr>
+							</tbody>
+						
+						</table>
+					</div>
 				</div>
 				
 			</div>

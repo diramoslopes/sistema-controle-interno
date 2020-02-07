@@ -37,53 +37,55 @@
 						</div>
 					</form>
 				
-					<table class="table table-bordered table-striped">
-						
-						<thead>
-							<tr>
-								<th class="text-center ">#</th>
-								<th> Departamento </th>
-								<th class="text-center">Funcionario</th>
-								<th class="text-center">Entidade</th>
-								<th class="text-center">Patrimonio</th>
-								<th class="text-center">Serie</th>
-								<th class="text-center">Tipo do Equipamento</th>
-								<th class="text-center">Marca</th>
-								<th class="text-center">Modelo</th>
-								<th class="text-center">Status</th>
-								<th class="text-center">Observação</th>
-								<th class="text-center"> Opções</th>
-							</tr>
-						</thead>
-						
-						<tbody>
-							<tr th:each="equipamento : ${equipamentos}">
-								<td class="text-center" th:text="${equipamento.codigo}"></td>
-								<td th:text="${equipamento.departamento.nomeDepartamento}"></td>
-								<td class="text-center" th:text="${equipamento.funcionario.nomeFuncionario}"></td>
-								<td class="text-center" th:text="${equipamento.entidade.descricao}"></td>
-								<td class="text-center" th:text="${equipamento.numeroDePatrimonio}"></td>
-								<td class="text-center" th:text="${equipamento.numeroDeSerie}"></td>
-								<td class="text-center" th:text="${equipamento.tipoEquipamento.descricao}"></td>
-								<td class="text-center" th:text="${equipamento.marca}"></td>
-								<td class="text-center" th:text="${equipamento.modelo}"></td>
-								<td class="text-center" th:text="${equipamento.tipoStatus.descricao}"></td>
-								<td class="text-center" th:text="${equipamento.observacao}"></td>
-								<td class="text-center"> 
-									<a class="btn btn-link btn-xs" th:href="@{/equipamentos/{codigo}(codigo=${equipamento.codigo})}"
-										title="Editar" rel="tooltip" data-placement="top">
-										<span class="glyphicon glyphicon-pencil"></span>
-									</a>
-									
-									<a class="btn btn-link btn-xs" th:href="@{/equipamentos/excluir/{codigo}(codigo=${equipamento.codigo})}"
-										title="Excluir" rel="tooltip" data-placement="top">
-		   								<span class="glyphicon glyphicon-remove"></span>
-	   								</a>
-								</td>
-							</tr>
-						</tbody>
-						
-					</table>
+				<div class="table-responsive">
+						<table class="table table-bordered table-striped">
+							
+							<thead>
+								<tr>
+									<th class="text-center ">#</th>
+									<th> Departamento </th>
+									<th class="text-center">Funcionario</th>
+									<th class="text-center">Entidade</th>
+									<th class="text-center">Patrimonio</th>
+									<th class="text-center">Serie</th>
+									<th class="text-center">Tipo do Equipamento</th>
+									<th class="text-center">Marca</th>
+									<th class="text-center">Modelo</th>
+									<th class="text-center">Status</th>
+									<th class="text-center">Observação</th>
+									<th class="text-center"> Opções</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr th:each="equipamento : ${equipamentos}">
+									<td class="text-center" th:text="${equipamento.codigo}"></td>
+									<td th:text="${equipamento.departamento.nomeDepartamento}"></td>
+									<td class="text-center" th:text="${equipamento.funcionario.nomeFuncionario}"></td>
+									<td class="text-center" th:text="${equipamento.entidade.descricao}"></td>
+									<td class="text-center" th:text="${equipamento.numeroDePatrimonio}"></td>
+									<td class="text-center" th:text="${equipamento.numeroDeSerie}"></td>
+									<td class="text-center" th:text="${equipamento.tipoEquipamento.descricao}"></td>
+									<td class="text-center" th:text="${equipamento.marca}"></td>
+									<td class="text-center" th:text="${equipamento.modelo}"></td>
+									<td class="text-center" th:text="${equipamento.tipoStatus.descricao}"></td>
+									<td class="text-center" th:text="${equipamento.observacao}"></td>
+									<td class="text-center"> 
+										<a class="btn btn-link btn-xs" th:href="@{/equipamentos/{codigo}(codigo=${equipamento.codigo})}"
+											title="Editar" rel="tooltip" data-placement="top">
+											<span class="glyphicon glyphicon-pencil"></span>
+										</a>
+										
+										<a class="btn btn-link btn-xs" th:href="@{/equipamentos/excluir/{codigo}(codigo=${equipamento.codigo})}"
+											title="Excluir" rel="tooltip" data-placement="top">
+			   								<span class="glyphicon glyphicon-remove"></span>
+		   								</a>
+									</td>
+								</tr>
+							</tbody>
+							
+						</table>
+					<div class="table-responsive">
 				</div>
 				
 			</div>

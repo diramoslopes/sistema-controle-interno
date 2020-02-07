@@ -36,44 +36,46 @@
 							</div>
 						</div>
 					</form>
-				
-					<table class="table table-bordered table-striped">
 					
-						<thead>
-							<tr>
-								<th class="text-center col-md-1">#</th>
-								<th> Funcionario </th>
-								<th class="text-center col-md-2">E-mail</th>
-								<th class="text-right col-md-2">Entidade</th>
-								<th class="text-center col-md-2">Ramal</th>
-								<th class="text-center col-md-2">Departamento</th>
-								<th class="text-center col-md-1">Opções</th>
-							</tr>
-						</thead>
+					<div class="table-responsive">
+						<table class="table table-bordered table-striped">
 						
-						<tbody>
-							<tr th:each="funcionario : ${funcionarios}">
-								<td class="text-center" th:text="${funcionario.codigo}"></td>
-								<td th:text="${funcionario.nomeFuncionario}"></td>
-								<td class="text-center" th:text="${funcionario.email}"></td>
-								<td class="text-right" th:text="${funcionario.entidade.descricao}"></td>
-								<td class="text-center" th:text="${funcionario.ramal}"></td>
-								<td class="text-center" th:text="${funcionario.departamento.nomeDepartamento}"></td>
-								<td class="text-center">
-									<a class="btn btn-link btn-xs" th:href="@{/funcionarios/{codigo}(codigo=${funcionario.codigo})}"
-										title="Editar" rel="tooltip" data-placement="top">
-										<span class="glyphicon glyphicon-pencil"></span>
-									</a>
-									
-									<a class="btn btn-link btn-xs" th:href="@{/funcionarios/excluir/{codigo}(codigo=${funcionario.codigo})}"
-										title="Excluir" rel="tooltip" data-placement="top">
-		   								<span class="glyphicon glyphicon-remove"></span>
-	   								</a>
-								</td>
-							</tr>
-						</tbody>
-					
-					</table>
+							<thead>
+								<tr>
+									<th class="text-center col-md-1">#</th>
+									<th> Funcionario </th>
+									<th class="text-center col-md-2">E-mail</th>
+									<th class="text-right col-md-2">Entidade</th>
+									<th class="text-center col-md-2">Ramal</th>
+									<th class="text-center col-md-2">Departamento</th>
+									<th class="text-center col-md-1">Opções</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr th:each="funcionario : ${funcionarios}">
+									<td class="text-center" th:text="${funcionario.codigo}"></td>
+									<td th:text="${funcionario.nomeFuncionario}"></td>
+									<td class="text-center" th:text="${funcionario.email}"></td>
+									<td class="text-right" th:text="${funcionario.entidade.descricao}"></td>
+									<td class="text-center" th:text="${funcionario.ramal}"></td>
+									<td class="text-center" th:text="${funcionario.departamento.nomeDepartamento}"></td>
+									<td class="text-center">
+										<a class="btn btn-link btn-xs" th:href="@{/funcionarios/{codigo}(codigo=${funcionario.codigo})}"
+											title="Editar" rel="tooltip" data-placement="top">
+											<span class="glyphicon glyphicon-pencil"></span>
+										</a>
+										
+										<a class="btn btn-link btn-xs" th:href="@{/funcionarios/excluir/{codigo}(codigo=${funcionario.codigo})}"
+											title="Excluir" rel="tooltip" data-placement="top">
+			   								<span class="glyphicon glyphicon-remove"></span>
+		   								</a>
+									</td>
+								</tr>
+							</tbody>
+						
+						</table>
+					</div>
 				</div>
 				
 			</div>
