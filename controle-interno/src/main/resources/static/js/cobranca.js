@@ -18,8 +18,6 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event) {
 $(function () {
 	  $('[rel="tooltip"]').tooltip();
 	  
-	  $('.ip-class').mask('999.999.99.999');
-	  
 	  $('.js-currency').maskMoney({decimal: ',', thousands: '.', allwZero: true});
 	  
 	  $('.js-atualizar-status').on('click', function(event){
